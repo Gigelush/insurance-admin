@@ -8,7 +8,7 @@ import { Search, Filter, Eye, Trash2, FolderOpen } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { Claim } from "@/types";
+import { Claim, ClaimPayment } from "@/types";
 
 import { ReopenClaimDialog } from "@/components/claims/ReopenClaimDialog";
 
@@ -180,7 +180,7 @@ export default function ClaimsPage() {
                                             if (['Finalizat', 'Resolved', 'Closed'].includes(claim.status)) {
                                                 let totalPaid = 0;
                                                 if (claim.payments && Array.isArray(claim.payments)) {
-                                                    totalPaid = claim.payments.reduce((sum, p) => sum + (parseFloat(p.amount) || 0), 0);
+                                                    totalPaid = claim.payments.reduce((sum: number, p: ClaimPayment) => sum + (parseFloat(p.amount) || 0), 0);
                                                 } else if (claim.payment) {
                                                     totalPaid = parseFloat(claim.payment.amount) || 0;
                                                 }
