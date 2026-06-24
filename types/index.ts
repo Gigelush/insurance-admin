@@ -13,4 +13,4 @@ export type {
     Message,
     Collaborator,
     Avizare,
-} from "../../shared/types";
+} from "./shared-types";
