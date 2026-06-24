@@ -308,7 +308,7 @@ export function ClaimRegressTab({ claim, onManage, onUpdate, onRefresh, readOnly
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y">
-                                                {claim.regress.recoveredPayments.map((p, idx) => (
+                                                {claim.regress.recoveredPayments.map((p: any, idx: number) => (
                                                     <tr key={idx}>
                                                         <td className="px-3 py-2">{new Date(p.date).toLocaleDateString('ro-RO')}</td>
                                                         <td className="px-3 py-2">{p.details}</td>
