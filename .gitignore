@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment files (nu urca parolele/cheile pe GitHub!)
+.env.local
+.env.production.local
+.env*.local
+
+# Database (baza de date ramane pe server, nu pe GitHub)
+database.db
+database.db-shm
+database.db-wal
+db.json
+db.json.backup
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
