@@ -78,8 +78,8 @@ export default function FinanciarPage() {
     }, [allPayments, statusFilter, searchQuery]);
 
     // Summary stats
-    const totalPending = allPayments.filter(fp => !fp.payment.paidAt).reduce((sum, fp) => sum + parseFloat(fp.payment.amount || '0'), 0);
-    const totalPaid = allPayments.filter(fp => fp.payment.paidAt).reduce((sum, fp) => sum + parseFloat(fp.payment.amount || '0'), 0);
+    const totalPending = allPayments.filter(fp => !fp.payment.paidAt).reduce((sum: number, fp: any) => sum + parseFloat(fp.payment.amount || '0'), 0);
+    const totalPaid = allPayments.filter(fp => fp.payment.paidAt).reduce((sum: number, fp: any) => sum + parseFloat(fp.payment.amount || '0'), 0);
     const pendingCount = allPayments.filter(fp => !fp.payment.paidAt).length;
 
     const handleMarkPaid = async (fp: FinancialPayment) => {
@@ -342,7 +342,7 @@ export default function FinanciarPage() {
 
                     return sortedKeys.map(dateLabel => {
                         const dayPayments = groups[dateLabel];
-                        const dayTotal = dayPayments.reduce((s, fp) => s + parseFloat(fp.payment.amount || '0'), 0);
+                        const dayTotal = dayPayments.reduce((s: number, fp: any) => s + parseFloat(fp.payment.amount || '0'), 0);
                         const dayPaid = dayPayments.filter(fp => fp.payment.paidAt).length;
 
                         return (

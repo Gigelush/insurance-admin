@@ -284,13 +284,13 @@ export function ClaimRegressTab({ claim, onManage, onUpdate, onRefresh, readOnly
                                     <div className="bg-green-50 p-3 rounded border border-green-200">
                                         <div className="text-xs text-green-600 font-semibold uppercase">Total Recuperat</div>
                                         <div className="text-xl font-bold text-green-800">
-                                            {claim.regress.recoveredPayments?.reduce((acc, p) => acc + parseFloat(p.amount), 0).toFixed(2) || '0.00'} RON
+                                            {claim.regress.recoveredPayments?.reduce((acc: number, p: any) => acc + parseFloat(p.amount), 0).toFixed(2) || '0.00'} RON
                                         </div>
                                     </div>
                                     <div className="bg-red-50 p-3 rounded border border-red-200">
                                         <div className="text-xs text-red-600 font-semibold uppercase">Rest de Plată</div>
                                         <div className="text-xl font-bold text-red-800">
-                                            {Math.max(0, parseFloat(claim.regress.amount) - (claim.regress.recoveredPayments?.reduce((acc, p) => acc + parseFloat(p.amount), 0) || 0)).toFixed(2)} RON
+                                            {Math.max(0, parseFloat(claim.regress.amount) - (claim.regress.recoveredPayments?.reduce((acc: number, p: any) => acc + parseFloat(p.amount), 0) || 0)).toFixed(2)} RON
                                         </div>
                                     </div>
                                 </div>
@@ -337,7 +337,7 @@ export function ClaimRegressTab({ claim, onManage, onUpdate, onRefresh, readOnly
                                                         id="payment-amount"
                                                         className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
                                                         placeholder="0.00"
-                                                        defaultValue={Math.max(0, parseFloat(claim.regress.amount) - (claim.regress.recoveredPayments?.reduce((acc, p) => acc + parseFloat(p.amount), 0) || 0)).toFixed(2)}
+                                                        defaultValue={Math.max(0, parseFloat(claim.regress.amount) - (claim.regress.recoveredPayments?.reduce((acc: number, p: any) => acc + parseFloat(p.amount), 0) || 0)).toFixed(2)}
                                                     />
                                                 </div>
                                                 <div>
@@ -364,21 +364,6 @@ export function ClaimRegressTab({ claim, onManage, onUpdate, onRefresh, readOnly
                                                         hover:file:bg-blue-100"
                                                     onChange={handleUploadPaymentProof}
                                                 />
-                                                {/* Hidden store for the last uploaded file name from handleUploadPaymentProof side-effect if needed,
-                                                    but correctly we should handle state. For now trusting the latest file in list matching timestamp?
-                                                    Actually, let's just use the file input directly in the submit handler if possible,
-                                                    OR better: use the existing handleUploadPaymentProof to upload immediately,
-                                                    and then link it.
-
-                                                    Simplification: Uploading file ADDS it to claim.files.
-                                                    We will just link the latest 'payment_proof' file uploaded if it was uploaded effectively 'now'.
-
-                                                    Better approach for this iteration: Just Upload Button separate?
-                                                    No, user wants "Upload & Validate" flow often.
-
-                                                    Let's keep the existing `handleUploadPaymentProof` which uploads immediately.
-                                                    We can show the filename here if `paymentProofs` has a new item.
-                                                */}
                                                 {paymentProofs.length > 0 && (
                                                     <div className="mt-2 text-xs text-green-600 flex items-center gap-1">
                                                         <FileDown className="w-3 h-3" />
@@ -403,7 +388,7 @@ export function ClaimRegressTab({ claim, onManage, onUpdate, onRefresh, readOnly
                                                     const details = detailsInput.value || "Plata Parțială";
 
                                                     // Calculate new totals
-                                                    const currentRecovered = claim.regress?.recoveredPayments?.reduce((acc, p) => acc + parseFloat(p.amount), 0) || 0;
+                                                    const currentRecovered = claim.regress?.recoveredPayments?.reduce((acc: number, p: any) => acc + parseFloat(p.amount), 0) || 0;
                                                     const totalRecovered = currentRecovered + amount;
                                                     const totalDebt = parseFloat(claim.regress?.amount || "0");
 
