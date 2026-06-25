@@ -214,23 +214,10 @@ function LoginForm() {
                             </>
                         )}
                     </button>
-
-                    {/* Info pills */}
-                    <div className="mt-6 flex flex-wrap justify-center gap-2">
-                        <div className="flex items-center gap-1.5 bg-blue-500/10 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/20">
-                            <Shield className="w-3 h-3" /> Operator: Avizări + Colaboratori
-                        </div>
-                        <div className="flex items-center gap-1.5 bg-orange-500/10 text-orange-300 text-xs px-3 py-1 rounded-full border border-orange-500/20">
-                            <Shield className="w-3 h-3" /> Lucrător: Dosare + Avizări
-                        </div>
-                        <div className="flex items-center gap-1.5 bg-purple-500/10 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-500/20">
-                            <Shield className="w-3 h-3" /> Manager: Acces complet
-                        </div>
-                    </div>
                 </div>
 
                 <p className="text-center text-white/20 text-xs mt-6">
-                    © {new Date().getFullYear()} Build'n Claims — Sistem intern
+                    © {new Date().getFullYear()} Build'n Claims — By G.
                 </p>
             </div>
 
