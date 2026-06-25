@@ -106,14 +106,13 @@ function LoginForm() {
                 {/* Logo + Title */}
                 <div className="text-center mb-8">
                     <div className="flex justify-center mb-4">
-                        <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-700 rounded-2xl shadow-2xl flex items-center justify-center">
-                            <img src="/logo.png" alt="Logo" className="w-14 h-14 object-contain" onError={(e) => {
+                        <div className="w-36 h-36 bg-white rounded-3xl shadow-2xl flex items-center justify-center p-2">
+                            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" onError={(e) => {
                                 (e.target as HTMLImageElement).style.display = 'none';
                             }} />
                         </div>
                     </div>
-                    <h1 className="text-3xl font-bold text-white mb-1">Build'n Claims</h1>
-                    <p className="text-orange-200/70 text-sm">Platformă Administrativă</p>
+                    <h1 className="text-3xl font-bold text-white">Build'n Claims</h1>
                 </div>
 
                 {/* Card */}
